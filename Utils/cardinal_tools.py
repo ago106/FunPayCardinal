@@ -181,6 +181,33 @@ def load_disabled_plugins() -> list[str]:
         except json.decoder.JSONDecodeError:
             return []
 
+def cache_pinned_plugins(pinned_plugins: list[str]) -> None:
+    """
+    Кэширует UUID закрепленных плагинов.
+
+    :param pinned_plugins: список UUID закрепленных плагинов.
+    """
+    if not os.path.exists("storage/cache"):
+        os.makedirs("storage/cache")
+
+    with open("storage/cache/pinned_plugins.json", "w", encoding="utf-8") as f:
+        f.write(json.dumps(pinned_plugins))
+
+def load_pinned_plugins() -> list[str]:
+    """
+    Загружает список UUID закрепленных плагинов из кэша.
+
+    :return: список UUID закрепленных плагинов.
+    """
+    if not os.path.exists("storage/cache/pinned_plugins.json"):
+        return []
+
+    with open("storage/cache/pinned_plugins.json", "r", encoding="utf-8") as f:
+        try:
+            return json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            return []
+
 
 def cache_old_users(old_users: dict[int, float]):
     """
@@ -443,9 +470,6 @@ def format_order_text(text: str, order: FunPayAPI.types.OrderShortcut | FunPayAP
     for var in variables:
         text = text.replace(var, variables[var])
     return text
-
-def funpay_greetings_text(c: Cardinal, obj: FunPayAPI.types.Message | FunPayAPI.types.ChatShortcut) -> str:
-    return format_msg_text(c.MAIN_CFG["Greetings"]["greetingsText"], obj)
 
 
 def restart_program():

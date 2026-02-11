@@ -703,15 +703,16 @@ def plugins_list(c: Cardinal, offset: int):
     :return: объект клавиатуры со списком плагинов.
     """
     kb = K()
-    plugins = list(sorted(c.plugins.keys(), key=lambda x: c.plugins[x].name.lower()))[
+    plugins = list(sorted(c.plugins.keys(), key=lambda x: (not c.plugins[x].pinned, c.plugins[x].name.lower())))[
               offset: offset + MENU_CFG.PLUGINS_BTNS_AMOUNT]
     if not plugins and offset != 0:
         offset = 0
         plugins = list(c.plugins.keys())[offset: offset + MENU_CFG.PLUGINS_BTNS_AMOUNT]
 
     for uuid in plugins:
+        e = "📌 " if c.plugins[uuid].pinned else ""
         #  CBT.EDIT_PLUGIN:uuid плагина:смещение (для кнопки назад)
-        kb.add(B(f"{c.plugins[uuid].name} {bool_to_text(c.plugins[uuid].enabled)}",
+        kb.add(B(f"{e}{c.plugins[uuid].name} {bool_to_text(c.plugins[uuid].enabled)}",
                  None, f"{CBT.EDIT_PLUGIN}:{uuid}:{offset}"))
 
     kb = add_navigation_buttons(kb, offset, MENU_CFG.PLUGINS_BTNS_AMOUNT, len(plugins),
@@ -735,9 +736,10 @@ def edit_plugin(c: Cardinal, uuid: str, offset: int, ask_to_delete: bool = False
     """
     plugin_obj = c.plugins[uuid]
     kb = K()
-    active_text = _("pl_deactivate") if c.plugins[uuid].enabled else _("pl_activate")
+    active_text = _("pl_deactivate") if plugin_obj.enabled else _("pl_activate")
     kb.add(B(active_text, None, f"{CBT.TOGGLE_PLUGIN}:{uuid}:{offset}"))
-
+    pin_text = _("pl_unpin") if plugin_obj.pinned else _("pl_pin")
+    kb.add(B(pin_text, None, f"{CBT.PIN_PLUGIN}:{uuid}:{offset}"))
     if plugin_obj.commands:
         kb.add(B(_("pl_commands"), None, f"{CBT.PLUGIN_COMMANDS}:{uuid}:{offset}"))
     if plugin_obj.settings_page:
@@ -752,9 +754,6 @@ def edit_plugin(c: Cardinal, uuid: str, offset: int, ask_to_delete: bool = False
     return kb
 
 
-def LINKS_KB(language: None | str = None) -> K:
+def links(language: None | str = None) -> K:
     return K().add(B(_("lnk_github", language=language),
-                     url="https://github.com/ago106/FunPayCardinal")) \
-        .add(B(_("lnk_updates", language=language), url="https://t.me/fpc_updates")) \
-        .add(B(_("mm_plugins", language=language), url="https://t.me/fpc_plugins")) \
-        .add(B(_("lnk_chat", language=language), url="https://t.me/funpay_cardinal"))
+                     url="https://github.com/ago106/FunPayCardinal"))

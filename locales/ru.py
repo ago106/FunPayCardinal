@@ -138,8 +138,11 @@ mv_show_image_name = "{} Отображать названия изображе�
 pl_add = "➕ Добавить плагин"
 pl_activate = "Активировать"
 pl_deactivate = "Деактивировать"
+pl_pin = "Закрепить"
+pl_unpin = "Открепить"
 pl_commands = "⌨️ Команды"
 pl_settings = "⚙️ Настройки"
+pl_buy = "💸 Купить плагин"
 
 # Конфиги
 cfg_download_main = "⤵️ Загрузить основной конфиг"
@@ -214,11 +217,17 @@ bot_started = """✅ Telegram-бот запущен!\n
 🔃 Как только <i>FunPay Cardinal</i> инициализируется, данное сообщение изменится.\n
 📋 Если <i>FPC</i> долго не инициализируется, проверь логи с помощью команды /logs"""
 
-fpc_init = """✅ <b><u>FPC инициализирован!</u></b>\n
+fpc_init = """✅ <b><u>FunPay Cardinal инициализирован!</u></b>\n
 ℹ️ <b><i>Версия:</i></b> <code>{}</code>
 👑 <b><i>Аккаунт:</i></b>  <code>{}</code> | <code>{}</code>
 💰 <b><i>Баланс:</i></b> <code>{}₽, {}$, {}€</code>
-📊 <b><i>Активные заказы:</i></b>  <code>{}</code>"""
+📊 <b><i>Активные заказы:</i></b>  <code>{}</code>
+
+💬 <b><i>Telegram чат:</i></b> @funpay_cardinal
+🔄 <b><i>Обновления:</i></b> @fpc_updates
+🧩 <b><i>Плагины:</i></b> @fpc_plugins
+👨‍💻 <b><i>Разработчик:</i></b> @ago106
+🤑 <b><i>Донат:</i></b> @sidor_donate"""
 
 create_test_ad_key = "Введи название лота, авто-выдачу которого ты хочешь протестировать."
 
@@ -226,7 +235,8 @@ test_ad_key_created = """✅ Создан одноразовый ключ для
 Отправь команду снизу в чат с пользователем, которому хочешь выдать товар.\n
 <code>!автовыдача {}</code>"""
 
-about = """<b>🐦 FunPay Cardinal 🐦 v{}</b>"""
+about = """<b>🐦 FunPay Cardinal 🐦 v{}</b>\n
+<i>Разработчик:</i> @ago106"""
 
 sys_info = """<b><u>Сводка данных</u></b>
 
@@ -426,7 +436,11 @@ adv_description = """🐦 𝑭𝒖𝒏𝑷𝒂𝒚 𝑪𝒂𝒓𝒅𝒊𝒏𝒂�
 🧩 Плагины
 🌟 И многое другое...
 
-🛠️ Создать своего бота: github.com/ag0106/FunPayCardinal"""
+🛠️ Создать своего бота: github.com/sidor0912/FunPayCardinal
+💰 Донат: @sidor_donate
+🔄 Обновления: @fpc_updates
+🧩 Плагины: @fpc_plugins
+💬 Чат: @funpay_cardinal"""
 
 # - Описания меню
 desc_main = "Выбери категорию настроек."

@@ -138,8 +138,11 @@ mv_show_image_name = "{} Відображати назви зображень"
 pl_add = "➕ Додати плагін"
 pl_activate = "Активувати"
 pl_deactivate = "Деактивувати"
+pl_pin = "Закріпити"
+pl_unpin = "Відкріпити"
 pl_commands = "⌨️ Команди"
 pl_settings = "⚙️ Налаштування"
+pl_buy = "💸 Купити плагін"
 
 # Конфіги
 cfg_download_main = "⤵️ Завантажити основний конфіг"
@@ -223,7 +226,7 @@ fpc_init = """✅ <b><u>FunPay Cardinal ініціалізовано!</u></b>\n
 💬 <b><i>Telegram чат:</i></b> @funpay_cardinal
 🔄 <b><i>Оновлення:</i></b> @fpc_updates
 🧩 <b><i>Плагіни:</i></b> @fpc_plugins
-👨‍💻 <b><i>Розробник:</i></b> @woopertail, @sidor0912
+👨‍💻 <b><i>Розробник:</i></b> @ago106
 🤑 <b><i>Донат:</i></b> @sidor_donate"""
 
 create_test_ad_key = "Введи назву лота, авто-видачу якого ти хочеш протестувати."
@@ -236,7 +239,7 @@ about = """<b>🐦 FunPay Cardinal 🐦 v{}</b>\n
 <i>Telegram чат:</i> @funpay_cardinal
 <i>Оновлення:</i> @fpc_updates
 <i>Плагіни:</i> @fpc_plugins
-<i>Розробник:</i> @woopertail, @sidor0912
+<i>Розробник:</i> @woopertail, @ago106
 <i>Донат:</i> @sidor_donate"""
 
 sys_info = """<b><u>Дані системи</u></b>

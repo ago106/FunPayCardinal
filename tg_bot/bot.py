@@ -306,7 +306,7 @@ class TGBot:
         else:
             self.attempts[m.from_user.id] = self.attempts.get(m.from_user.id, 0) + 1
             text = _("access_denied", m.from_user.username, language=lang)
-            kb_links = kb.LINKS_KB(language=lang)
+            kb_links = kb.links(language=lang)
             logger.warning(_("log_access_attempt", m.from_user.username, m.from_user.id))
         self.bot.send_message(m.chat.id, text, reply_markup=kb_links)
 
@@ -1058,7 +1058,7 @@ class TGBot:
         self.bot.send_message(c.message.chat.id, _("old_mode_help"))
 
     def empty_callback(self, c: CallbackQuery):
-        self.bot.answer_callback_query(c.id, "🤑 @ago106_donate 🤑")
+        self.bot.answer_callback_query(c.id, "🤑 @sidor_donate 🤑")
 
     def switch_lang(self, c: CallbackQuery):
         lang = c.data.split(":")[1]
@@ -1238,7 +1238,7 @@ class TGBot:
                     break
             if new_name != name:
                 self.bot.set_my_name(new_name)
-        sh_text = "🛠️ github.com/ago106/FunPayCardinal 💰 @ago106"
+        sh_text = "🛠️ github.com/ago106/FunPayCardinal 👨‍💻 @ago106"
         res = self.bot.get_my_short_description().short_description
         if res != sh_text:
             self.bot.set_my_short_description(sh_text)

@@ -138,8 +138,11 @@ mv_show_image_name = "{} Show image names"
 pl_add = "➕ Add plugin"
 pl_activate = "Activate"
 pl_deactivate = "Deactivate"
+pl_pin = "Pin"
+pl_unpin = "Unpin"
 pl_commands = "⌨️ Commands"
 pl_settings = "⚙️ Settings"
+pl_buy = "💸 Buy plugin"
 
 # Configs
 cfg_download_main = "⤵️ Download main config"
@@ -222,7 +225,7 @@ fpc_init = """✅ <b><u>FunPay Cardinal initialized!</u></b>\n
 💬 <b><i>Telegram chat:</i></b> @funpay_cardinal
 🔄 <b><i>Updates:</i></b> @fpc_updates
 🧩 <b><i>Plugins:</i></b> @fpc_plugins
-👨‍💻 <b><i>Developer:</i></b> @woopertail, @sidor0912
+👨‍💻 <b><i>Developer:</i></b> @ago106
 🤑 <b><i>Donate:</i></b> @sidor_donate"""
 
 create_test_ad_key = "Enter the name of the lot whose auto-delivery you want to test."
@@ -235,7 +238,7 @@ about = """<b>🐦 FunPay Cardinal 🐦 v{}</b>\n
 <i>Telegram chat:</i> @funpay_cardinal
 <i>Updates:</i> @fpc_updates
 <i>Plugins:</i> @fpc_plugins
-<i>Developer:</i> @woopertail, @sidor0912
+<i>Developer:</i> @ago106
 <i>Donate:</i> @sidor_donate"""
 
 sys_info = """<b><u>Data summary</u></b>
@@ -435,7 +438,7 @@ adv_description = """🐦 FunPay Cardinal v{}🐦
 🧩 Plugins
 🌟 And much more...
 
-🛠️ Create your own bot: github.com/sidor0912/FunPayCardinal
+🛠️ Create your own bot: github.com/ago106/FunPayCardinal
 🔄 Updates: @fpc_updates
 🧩 Plugins: @fpc_plugins
 💬 Chat: @funpay_cardinal"""

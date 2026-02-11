@@ -29,7 +29,7 @@ from cardinal import Cardinal
 import Utils.exceptions as excs
 from locales.localizer import Localizer
 
-VERSION = "Custom Build - #2" # 0.1.16.11
+VERSION = "0.1.16.21 - Custom #3"
 
 Utils.cardinal_tools.set_console_title(f"FunPay Cardinal v{VERSION}")
 
@@ -57,6 +57,7 @@ logger = logging.getLogger("main")
 logger.debug("------------------------------------------------------------------")
 
 print(f"{Fore.RED}{Style.BRIGHT}v{VERSION}{Style.RESET_ALL}\n")
+print(f"{Fore.MAGENTA}{Style.BRIGHT}By {Fore.BLUE}{Style.BRIGHT}ago106{Style.RESET_ALL}")
 
 if not os.path.exists("configs/_main.cfg"):
     first_setup()
@@ -72,20 +73,6 @@ if sys.platform == "linux" and os.getenv('FPC_IS_RUNNIG_AS_SERVICE', '0') == '1'
 
     logger.info(f"$GREENPID файл создан, PID процесса: {pid}")  # locale
 
-directory = 'plugins'
-for filename in os.listdir(directory):
-    if filename.endswith(".py"):  # Проверяем, что файл имеет расширение .py
-        filepath = os.path.join(directory, filename)  # Получаем полный путь к файлу
-        with open(filepath, 'r', encoding='utf-8') as file:
-            data = file.read()  # Читаем содержимое файла
-        # Заменяем подстроку
-        if '"<i>Разработчик:</i> " + CREDITS' in data or " lot.stars " in data or " lot.seller " in data:
-            data = data.replace('"<i>Разработчик:</i> " + CREDITS', '"ago106"') \
-                .replace(" lot.stars ", " lot.seller.stars ") \
-                .replace(" lot.seller ", " lot.seller.username ")
-            # Сохраняем изменения обратно в файл
-            with open(filepath, 'w', encoding='utf-8') as file:
-                file.write(data)
 
 try:
     logger.info("$MAGENTAЗагружаю конфиг _main.cfg...")  # locale
